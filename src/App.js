@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import DB from './db'
+import AppNavbar from './components/AppNavbar'
+import ObservationList from './components/ObservationList'
+import ObservationForm from './components/ObservationForm'
 
-function App() {
+
+class App extends Component {
+  state = {
+    db: new DB('bird-watch'),
+    observations: {}
+  }
+
+  async componentDidMount(){  
+    const observations = await this.state.db.getAllObservations()
+
+    this.setState({
+      observations
+    })
+  }
+
+
+  handleSave = async (observation) => {
+  let { id } = await this.state.db.createObservation(observation)
+
+  const {observations} = this.state
+
+  this.setState({
+    observations: {
+      ...observations,
+      [id]: observation
+    }
+  })
+}
+
+render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppNavbar />
+      <ObservationForm observations={this.state.observations} onSave={this.handleSave} />
+      <ObservationList observations={this.state.observations}/>
     </div>
   );
+}
+  
 }
 
 export default App;
