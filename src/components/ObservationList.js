@@ -12,7 +12,7 @@ const ObservationList = (props) => {
   const observations = Object.values(props.observations)
   const [filter, setFilter] = useState('newest')
 
-  console.log(observations)
+  /* console.log(observations) */
 
   let sortedObservationsByTime = observations.slice().sort((a, b) => {
     let date1 = new Date(a.timestamp)

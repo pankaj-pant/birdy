@@ -20,7 +20,7 @@ const ObservationForm = (props) => {
       ...observation,
       _attachments: {
         filename: {
-          type: file.type,
+          content_type: file.type,
           data: file
         }
       }
@@ -47,10 +47,8 @@ const ObservationForm = (props) => {
     if(observation.rarity === '--Select One--' || observation.rarity === '' || observation.name === '' || observation.not === ''){
       alert('Please enter all fields')
     } else {
-      console.log(observation)
       await props.onSave(observation)
       toggle()
-      window.location.reload()
     }
   }
 
