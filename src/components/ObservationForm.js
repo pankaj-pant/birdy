@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText
 } from 'reactstrap'
+import './ObservationForm.css'
 
 const ObservationForm = (props) => {
+  /* State for form modal */
   const [isOpen, setIsOpen] = useState(false)
+  /* State for user observation*/
   const [observation, setObservation] = useState({
     rarity: '',
     name: '',
@@ -13,9 +16,9 @@ const ObservationForm = (props) => {
     timestamp: ''
   })
 
+  /* Function for adding an image in to the observation  */
   const handleFiles = (event) => {
     const file = event.target.files[0]
-
     setObservation({
       ...observation,
       _attachments: {
@@ -27,6 +30,7 @@ const ObservationForm = (props) => {
     })
   }
 
+  /* Function for toggling the form modal */
   const toggle = () => {
     setIsOpen(!isOpen)
     setObservation({
@@ -42,6 +46,7 @@ const ObservationForm = (props) => {
     setObservation({ ...observation, [event.target.name]: event.target.value })
   }
 
+  /* Handle save operator, also has a simple form validation if user forgets to fill in one of the required fields. */
   const handleSave = async (event) => {
     event.preventDefault()
     if(observation.rarity === '--Select One--' || observation.rarity === '' || observation.name === '' || observation.not === ''){
@@ -53,18 +58,18 @@ const ObservationForm = (props) => {
   }
 
   return (
-    <div style={{ margin: '1rem 2rem' }}>
+    <div className='form' >
       <Button color="primary" onClick={toggle}>New Observation</Button>
       <Modal isOpen={isOpen} toggle={toggle} >
         <ModalHeader toggle={toggle}>Add New Observation</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="name">Name<span style={{ color: 'red' }}>*</span></Label>
+              <Label for="name">Name<span className='required' >*</span></Label>
               <Input type="text" name="name" id="name" placeholder="Name of bird" onChange={handleChange} />
             </FormGroup>
             <FormGroup>
-              <Label for="raritySelect">Rarity<span style={{ color: 'red' }}>*</span></Label>
+              <Label for="raritySelect">Rarity<span className='required' >*</span></Label>
               <Input type="select" name="rarity" id="raritySelect" onChange={handleChange} >
                 <option>--Select One--</option>
                 <option>Common</option>
@@ -73,7 +78,7 @@ const ObservationForm = (props) => {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for="notes">Notes<span style={{ color: 'red' }}>*</span></Label>
+              <Label for="notes">Notes<span className='required' >*</span></Label>
               <Input type="textarea" name="note" id="notes" placeholder="Spotted in Helsinki" onChange={handleChange} />
             </FormGroup>
             <FormGroup>
