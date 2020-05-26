@@ -30,7 +30,7 @@ const initialData = [
   },
   { rarity: 'Common',
     name: 'Eurasian Oystercatcher',
-    img: 'https://www.hbw.com/sites/default/files/styles/ibc_1k/public/ibc/p/1434_strandskata_haematopus_ostralegus_paarp_halland_20100503_1_1200.jpg?itok=GWr1z0ma',
+    img: 'https://www.vaasa.fi/uploads/2020/01/c2e53236-luontosivut.jpg',
     note: 'Spotted in Helsinki',
     timestamp: '2020-01-28T19:17:47.327Z',
     _attachments: null
