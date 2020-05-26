@@ -23,7 +23,7 @@ const initialData = [
   },
   { rarity: 'Rare',
     name: 'White-tailed eagle',
-    img: 'http://www.luontoportti.com/suomi/images/6868.jpg',
+    img: 'https://media.iwradio.co.uk/wp-content/uploads/2019/04/02142647/shutterstock_1053743846.jpg',
     note: 'Spotted in Kotka',
     'timestamp': '2020-01-25T18:58:10.679Z',
     _attachments: null
@@ -97,7 +97,7 @@ const ObservationList = (props) => {
         {/* Conditional rendering of observations array - default array provided if no user observations exist! */}
         {observations.length === 0 ?
           <>
-            <div className='sample-data'>Info: Sample data displayed below. Once user adds own data, only user data will displayed!</div>
+            <div className='sample-data'>Info: Sample data displayed below. Once user adds own data, only user data will be displayed!</div>
             <div className='observation-list'>
               {filter === 'newest' ? result(sortObservationsByTime(initialData)) : result(sortObservationsByName(initialData))}
             </div>
