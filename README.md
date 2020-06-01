@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bird Watching Application
 
-## Available Scripts
+An application for noting down and listing bird sightings, built using React and PouchDB database.
 
-In the project directory, you can run:
+## Using the app
 
-### `npm start`
+When a user accesses the bird watching app for the first time, sample bird watching data is displayed for the user, since the user has not added any sightings to the database. Sightings can be sorted by bird name or by date of sighting. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users can add their own bird sightings using the 'New Observation' button. The corresponding form has mandatory fields for name, rarity of bird species, and a section for notes. The user can also attach an image of the bird if they want (optional). If no image is provided, a sample image is assigned to the bird sighting entry. After pressing the submit button, the bird sighting is then rendered on the main page. Note: Once user adds data, the sample data is overwritten and removed. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+A special feature of this application is the data storage. Data is stored in a PouchDB database within the browser. PouchDB allows applications to store data locally while offline, then synchronize it with CouchDB and compatible servers when the application is back online, keeping the user's data in sync no matter where they next login. The CouchDB implementation in this application is still peding.
 
-### `npm test`
+Clearing the PouchDB database:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users can clear their own data entry, by accessing the 'Application' tab in Developer Tools. In the 'Storage' subsection there will be 'IndexedDB' -> '_pouch_bird-watch'. When user clicks the pouchdb storage, there will be an option for 'Delete database'. This will clear the database of the users entries, and the application will again display the sample data.
 
-### `npm run build`
+## Quick start
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. [Clone the repo](#1-clone-the-repo).
+1. [Install the dependencies](#2-install-the-dependencies).
+1. [Run the frontend](#4-run-the-frontend).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### 1. Clone the repo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the `birdy` repository locally. In a terminal, run:
 
-### `npm run eject`
+```
+$ git clone https://github.com/pankaj-pant/birdy.git
+$ cd birdy
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 2. Install the dependencies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To install the dependencies, run the command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    $ npm install
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 3. Run the frontend
 
-## Learn More
+This command serves the app at `http://localhost:8080/`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    $ npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Links
+* [Live Demo](https://birdy-pp.herokuapp.com/)
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
