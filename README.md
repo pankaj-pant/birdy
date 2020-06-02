@@ -2,6 +2,8 @@
 
 An application for noting down and listing bird sightings, built using React and PouchDB database.
 
+* [Live Demo](https://birdy-pp.herokuapp.com/)
+
 ## Using the app
 
 When a user accesses the bird watching app for the first time, sample bird watching data is displayed for the user, since the user has not added any sightings to the database. Sightings can be sorted by bird name or by date of sighting. 
@@ -17,8 +19,8 @@ Users can clear their own data entry, by accessing the 'Application' tab in Deve
 ## Quick start
 
 1. [Clone the repo](#1-clone-the-repo).
-1. [Install the dependencies](#2-install-the-dependencies).
-1. [Run the frontend](#4-run-the-frontend).
+1. [Install and build app](#2-install-and-build-app).
+1. [Run the frontend](#3-run-the-frontend).
 
 ### 1. Clone the repo
 
@@ -29,20 +31,18 @@ $ git clone https://github.com/pankaj-pant/birdy.git
 $ cd birdy
 ```
 
-### 2. Install the dependencies
+### 2. Install and build app
 
-To install the dependencies, run the command:
+To install the dependencies and build a production version of the app, run the commands:
 
     $ npm install
+    $ npm run build
 
 ### 3. Run the frontend
 
 This command serves the app at `http://localhost:8080/`.
 
     $ npm start
-
-# Links
-* [Live Demo](https://birdy-pp.herokuapp.com/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
