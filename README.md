@@ -2,7 +2,7 @@
 
 An application for noting down and listing bird sightings, built using React and PouchDB database.
 
-* [Live Demo](https://birdy-pp.herokuapp.com/)
+* [Live Demo](https://birdy-watch.web.app/)
 
 ## Using the app
 
